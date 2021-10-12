@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { ModalStyle } from "../modal/ModalStyle";
+
 class Modal extends Component {
   componentDidMount() {
     window.addEventListener("keydown", this.props.onEsc);
@@ -11,11 +13,13 @@ class Modal extends Component {
 
   render() {
     return (
-      <div className="Overlay" onClick={this.props.onBackdropClick}>
-        <div className="Modal">
-          <img src={this.props.url} alt="" />
+      <ModalStyle>
+        <div className="Overlay" onClick={this.props.onBackdropClick}>
+          <div className="Modal">
+            <img src={this.props.url} alt="#" />
+          </div>
         </div>
-      </div>
+      </ModalStyle>
     );
   }
 }

@@ -5,7 +5,7 @@ import { ButtonStyle } from "./ButtonStyle";
 const Button = ({ onLoadMoreClick }) => {
   return (
     <ButtonStyle>
-      <button className="Button" onClick={onLoadMoreClick}>
+      <button type="button" className="Button" onClick={onLoadMoreClick}>
         Load more
       </button>
     </ButtonStyle>
