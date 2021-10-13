@@ -10,24 +10,21 @@ class ImageGallery extends Component {
 
     return (
       <ImageGalleryStyle>
-        {loading ? (
-          <Loader />
-        ) : (
-          <>
-            <ul className="ImageGallery">
-              {pictures.length
-                ? pictures.map(({ id, webformatURL, largeImageURL }) => (
-                    <ImageGalleryItem
-                      key={id}
-                      src={webformatURL}
-                      modalShow={modalShow}
-                      largeImageURL={largeImageURL}
-                    />
-                  ))
-                : ""}
-            </ul>
-          </>
-        )}
+        <>
+          <ul className="ImageGallery">
+            {pictures.length
+              ? pictures.map(({ id, webformatURL, largeImageURL }) => (
+                  <ImageGalleryItem
+                    key={id}
+                    src={webformatURL}
+                    modalShow={modalShow}
+                    largeImageURL={largeImageURL}
+                  />
+                ))
+              : null}
+            {loading && <Loader />}
+          </ul>
+        </>
       </ImageGalleryStyle>
     );
   }

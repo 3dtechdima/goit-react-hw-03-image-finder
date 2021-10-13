@@ -28,10 +28,7 @@ class ImageGalleryItem extends Component {
 
     return (
       <ImageGalleryItemStyle>
-        <li
-          className="ImageGalleryItem"
-          onClick={() => this.onPictureClick(largeImageURL)}
-        >
+        <li className="ImageGalleryItem" onClick={() => this.onPictureClick()}>
           <img src={src} alt="$" className="ImageGalleryItem-image" />
         </li>
         {this.state.modalShow ? (

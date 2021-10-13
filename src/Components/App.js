@@ -23,29 +23,25 @@ class App extends Component {
         this.setState((prev) => ({
           pictures: [...prev.pictures, ...resp],
           page: prev.page + 1,
+          loading: false,
         }));
       })
-      .catch((error) => console.log(error))
-      .finally(() => this.setState({ loading: false }));
+      .catch((error) => console.log(error));
+    // .finally(() => this.setState({ loading: false }));
   };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.find !== this.state.find) {
       return this.getImages();
     }
-    if (this.state.page >= 2) {
+    if (prevState.page !== this.state.page) {
+      console.log(document.documentElement.scrollHeight);
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: "smooth",
       });
     }
   }
-
-  // er = () => {
-  //   if (this.setState.pictures.length === 0) {
-  //     return "Babla nema";
-  //   }
-  // };
 
   onSubmit = (e) => {
     e.preventDefault();
